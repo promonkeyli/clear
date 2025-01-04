@@ -1,0 +1,29 @@
+{
+  "name": "create-clear",
+  "version": "0.0.1",
+  "type": "module",
+  "author": "promonkeyli",
+  "bin": {
+    "create-clear": "index.js",
+    "cc": "index.js"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "files": [
+    "index.js",
+    "template-*"
+  ],
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/promonkeyli/clear.git",
+    "directory": "packages/create-clear"
+  },
+  "bugs": {
+    "url": "https://github.com/promonkeyli/clear/issues"
+  },
+  "homepage": "https://github.com/promonkeyli/clear/master/packages/create-clear#readme"
+}
