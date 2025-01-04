@@ -18,11 +18,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-          cache: 'pnpm'
 
       # Step 3: 安装依赖
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       # Step 4: 发布 create-clear 包
       - name: Publish create-clear
