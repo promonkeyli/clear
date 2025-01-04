@@ -1,4 +1,4 @@
-name: create-clear package publish
+name: pro-cli pkg publish
 
 on:
   push:
@@ -8,19 +8,16 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/create-clear
     steps:
-      - name: Checkout master
       - uses: actions/checkout@v4
-
-      - name: Setup Node
       - uses: actions/setup-node@v3
         with:
-          node-version: '20'
-          cache: 'pnpm'
-
-      - name: Publish create-clear
-        working-directory: packages/create-clear
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm publish
         env:
-           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm publish --no-git-checks
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
