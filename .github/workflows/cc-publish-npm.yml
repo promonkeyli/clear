@@ -7,19 +7,27 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout master
-      - uses: actions/checkout@v4
 
+    steps:
+      # Step 1: 检出代码
+      - name: Checkout master
+        uses: actions/checkout@v4
+
+      # Step 2: 设置 Node.js 环境
       - name: Setup Node
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
           cache: 'pnpm'
 
+      # Step 3: 安装依赖
+      - name: Install dependencies
+        run: pnpm install
+
+      # Step 4: 发布 create-clear 包
       - name: Publish create-clear
         working-directory: packages/create-clear
         env:
-           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm publish --no-git-checks
