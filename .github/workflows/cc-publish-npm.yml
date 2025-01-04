@@ -1,28 +1,23 @@
-name: create-clear package publish
+name: pro-cli pkg publish
 
 on:
   push:
-    branches: ["create-clear"]
+    branches:
+      - create-clear
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./packages/create-clear
     steps:
-      # Step 1: 检出代码
-      - name: Checkout master
-        uses: actions/checkout@v4
-
-      # Step 2: 设置 Node.js 环境
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
       - run: npm install
-
-      # Step 4: 发布 create-clear 包
-      - name: Publish create-clear
-        run: npm publish
-        working-directory: packages/create-clear
+      - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
