@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-
-// import './dist/index.mjs'
 import prompts from "prompts"
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
@@ -37,4 +35,12 @@ async function init() {
     }
 }
 
-init()
+function validPackageName(projectName) {
+    return /^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(
+        projectName,
+    )
+}
+
+init().catch(error => {
+    console.error(error)
+})

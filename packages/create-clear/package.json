@@ -1,18 +1,19 @@
 {
   "name": "create-clear",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "author": "promonkeyli",
   "bin": {
-    "create-clear": "index.js",
-    "cc": "index.js"
+    "create-clear": "index.js"
   },
   "scripts": {
-    "test": "node index.js"
+    "test": "node index.js",
+    "build": "unbuild"
   },
   "files": [
     "index.js",
-    "template-*"
+    "template-*",
+    "dist"
   ],
   "engines": {
     "node": "^19.0.0 || ^20.0.0 || >=22.0.0"
@@ -26,8 +27,11 @@
     "url": "https://github.com/promonkeyli/clear/issues"
   },
   "homepage": "https://github.com/promonkeyli/clear/master/packages/create-clear#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/prompts": "^2.4.9",
     "fs-extra": "^11.2.0",
-    "prompts": "^2.4.2"
+    "prompts": "^2.4.2",
+    "unbuild": "^3.2.0"
   }
 }
