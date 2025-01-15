@@ -1,4 +1,4 @@
-name: pro-cli pkg publish
+name: create-clear pkg publish
 
 on:
   push:
