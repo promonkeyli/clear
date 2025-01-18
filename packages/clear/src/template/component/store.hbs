@@ -1,0 +1,8 @@
+import { useState } from "react";
+import { {{componentName}}Props } from "./interface";
+
+export function use{{componentName}}Store(props: {{componentName}}Props) {
+const [count, setCount] = useState(0);
+
+return { count, setCount };
+}

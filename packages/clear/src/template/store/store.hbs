@@ -1,0 +1,33 @@
+/**
+* @description store 功能描述
+* @author Young
+* @created {{created}}
+*/
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+
+interface {{storeName}}StoreState {
+  data: any;
+}
+interface {{storeName}}StoreAction {
+  setData: (d: any) => void;
+  initial: () => void;
+}
+const initialState: {{storeName}}StoreState = {
+  data: null,
+};
+const use{{storeName}}Store = create<{{storeName}}StoreState & {{storeName}}StoreAction>()(
+  persist(
+    (set) => ({
+      ...initialState,
+      setData: (d) => set(() => ({ data: d })),
+      initial: () => set(() => ({ ...initialState })),
+    }),
+    {
+      name: "store",
+      storage: createJSONStorage(() => localStorage),
+    },
+  ),
+);
+
+export default use{{storeName}}Store;
