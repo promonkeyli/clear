@@ -3,7 +3,7 @@ name: clear pkg publish
 on:
   push:
     branches:
-      -clear
+      - clear
 
 jobs:
   publish-npm:
