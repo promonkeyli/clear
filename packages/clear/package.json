@@ -1,0 +1,33 @@
+{
+  "name": "@promonkeyli/clear",
+  "version": "0.0.1",
+  "description": "A clear front-end cli.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "cr": "index.js"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "test": "node index.js"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "clear",
+    "front-end",
+    "cli"
+  ],
+  "author": "promonkeyli",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "commander": "^13.0.0",
+    "fs-extra": "^11.2.0",
+    "handlebars": "^4.7.8",
+    "unbuild": "^3.2.0"
+  }
+}
