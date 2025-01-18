@@ -1,16 +1,16 @@
-name: create-clear pkg publish
+name: clear pkg publish
 
 on:
   push:
     branches:
-      - create-clear
+      -clear
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./packages/create-clear
+        working-directory: ./packages/clear
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
