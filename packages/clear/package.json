@@ -1,6 +1,7 @@
 {
   "name": "@promonkeyli/clear",
   "version": "0.0.1",
+  "private": false,
   "description": "A clear front-end cli.",
   "type": "module",
   "main": "index.js",
@@ -29,5 +30,9 @@
     "fs-extra": "^11.2.0",
     "handlebars": "^4.7.8",
     "unbuild": "^3.2.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
