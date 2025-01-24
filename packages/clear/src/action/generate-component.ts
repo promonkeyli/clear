@@ -1,5 +1,5 @@
 import path from "path";
-import { ILog, getDirname, renderHbsToFile, transformVariableName } from "../utils";
+import { getDirname, logMessage, renderHbsToFile, transformVariableName } from "../utils";
 
 export default async function generateComponentAction(name: string) {
     const { pascalCase: componentName, kebabCase: fileName } = transformVariableName(name)
@@ -25,8 +25,8 @@ export default async function generateComponentAction(name: string) {
         await renderHbsToFile(tsxTplPath, tsxTargetFilePath, fileData)
         await renderHbsToFile(interfaceTplPath, interfaceTargetFilePath, fileData)
         await renderHbsToFile(storeTplPath, storeTargetFilePath, fileData)
-        ILog(`✔ React ${fileName} 模版文件已生成成功！`, { color: "green" })
+        logMessage(`✔ React ${fileName} 模版文件已生成成功！`, { color: "green" })
     } catch (error: any) {
-        console.error(error)
+        logMessage(error, { color: "red" })
     }
 }
