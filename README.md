@@ -1,1 +1,1 @@
-# A cli for generating frontend tools
+# A front-end development tool.
