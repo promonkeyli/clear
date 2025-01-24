@@ -1,0 +1,14 @@
+/**
+* @description 组件功能描述
+* @author Young
+* @created {{created}}
+*/
+import { {{componentName}}Props } from "./interface";
+import { use{{componentName}}Store } from "./store";
+
+export default function {{componentName}}(props: {{componentName}}Props) {
+const { count } = use{{componentName}}Store(props);
+const { data } = props;
+
+return (<div className="container">{data}{count}</div>);
+}
