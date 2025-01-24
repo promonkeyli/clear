@@ -1,5 +1,5 @@
 import path from "path";
-import { ILog, getDirname, renderHbsToFile, transformVariableName } from "../utils";
+import { logMessage, getDirname, renderHbsToFile, transformVariableName } from "../utils";
 
 export default async function generateStoreAction(name: string) {
     const { pascalCase: storeName, kebabCase: fileName } = transformVariableName(name)
@@ -13,8 +13,8 @@ export default async function generateStoreAction(name: string) {
     const tplPath = path.join(getDirname(), "../src", 'template/store/store.hbs');
     try {
         await renderHbsToFile(tplPath, outPath, fileData)
-        ILog(`✔ Zustand ${fileName} 模版文件已生成成功 !`, { color: "green" })
+        logMessage(`✔ Zustand ${fileName} 模版文件已生成成功 !`, { color: "green" })
     } catch (error: any) {
-        console.error(error)
+        logMessage(error, { color: "red" })
     }
 }

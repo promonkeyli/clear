@@ -1,5 +1,5 @@
 import path from "path";
-import { ILog, getDirname, renderHbsToFile, transformVariableName } from "../utils";
+import { logMessage, getDirname, renderHbsToFile, transformVariableName } from "../utils";
 
 export default async function generateServiceAction(name: string) {
     const { pascalCase: serviceName, kebabCase: fileName } = transformVariableName(name)
@@ -13,8 +13,8 @@ export default async function generateServiceAction(name: string) {
     const tplPath = path.join(getDirname(), "../src", 'template/service/service.hbs');
     try {
         await renderHbsToFile(tplPath, outPath, fileData)
-        ILog(`✔ Service ${fileName} 模版文件已生成成功 !`, { color: "green" })
+        logMessage(`✔ Service ${fileName} 模版文件已生成成功 !`, { color: "green" })
     } catch (error: any) {
-        console.error(error)
+        logMessage(error, { color: "red" })
     }
 }
