@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import path, { dirname, join } from 'node:path';
 import fs from 'fs-extra';
 import Handlebars from "handlebars";
+import chalk, { BackgroundColorName, ChalkInstance, ForegroundColorName } from "chalk"
 
 /**
  * @description 获取当前项目下 package.json 的 version 信息
@@ -73,4 +74,61 @@ export function transformVariableName(str: string) {
  */
 export function getDirname() {
     return path.dirname(fileURLToPath(import.meta.url));
+}
+
+/**
+ * @description 输出当前时间戳
+ */
+function getTimestamp() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return `[${year}-${month}-${day} ${hours}:${minutes}:${seconds}]`;  // 格式： [YYYY-MM-DD HH:MM:SS]
+}
+interface LogOptions {
+    color?: ForegroundColorName;   // 支持chalk中的颜色属性
+    bgColor?: BackgroundColorName;             // 背景色，使用关键词或hex色
+    prefix?: string;              // 日志前缀
+    bold?: boolean;               // 是否加粗
+    underline?: boolean;          // 是否加下划线
+}
+/**
+ * @description log输出函数(可定制颜色： 使用chalk库)
+ */
+export function ILog(message: string, options: LogOptions = {}): void {
+    const {
+        color = 'white',    // 默认颜色为白色
+        bgColor = '',       // 默认没有背景色
+        prefix = '',        // 默认没有前缀
+        bold = false,       // 默认不加粗
+        underline = false   // 默认不加下划线
+    } = options;
+    const timestamp = getTimestamp();  // 获取时间戳
+
+    let chalkInstance = chalk[color]
+    // 设置背景色
+    if (bgColor) {
+        chalkInstance = chalkInstance[bgColor]
+    }
+    // 设置加粗
+    if (bold) {
+        chalkInstance = chalkInstance.bold
+    }
+    // 设置下划线
+    if (underline) {
+        chalkInstance = chalk.underline
+    }
+
+    // 输出日志，带上时间戳和前缀
+    let logMessage = ""
+    if (prefix) {
+        logMessage = `${chalk.gray(timestamp)} ${chalk.gray(prefix)} ${chalkInstance(message)}`
+    } else {
+        logMessage = `${chalk.gray(timestamp)} ${chalkInstance(message)}`
+    }
+    console.log(logMessage);
 }
