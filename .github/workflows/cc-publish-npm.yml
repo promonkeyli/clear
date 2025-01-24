@@ -1,10 +1,11 @@
 name: create-clear pkg publish
 
 on:
-  push:
+  pull_request:
     branches:
-      - create-clear
-
+      - master
+    paths:
+      - 'packages/create-clear/**'
 jobs:
   publish-npm:
     runs-on: ubuntu-latest

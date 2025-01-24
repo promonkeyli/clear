@@ -1,9 +1,11 @@
 name: clear pkg publish
 
 on:
-  push:
+  pull_request:
     branches:
-      - clear
+      - master
+    paths:
+      - 'packages/clear/**'
 
 jobs:
   publish-npm:
