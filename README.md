@@ -1,1 +1,1 @@
-# A front-end development tool.
+# A front-end development set of tools
