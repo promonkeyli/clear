@@ -12,9 +12,9 @@ export function getPackageVersion() {
     // 创建 require 函数
     const nodeRequire = createRequire(import.meta.url);
     // 获取当前模块的目录路径
-    const __dirname = dirname(fileURLToPath(import.meta.url));
+    const dirName = dirname(fileURLToPath(import.meta.url));
     // 假设 package.json 在项目根目录（当前模块的上级目录）
-    const packageJsonPath = join(__dirname, '../package.json');
+    const packageJsonPath = join(dirName, '../package.json');
     try {
         // 加载 package.json
         const packageJson = nodeRequire(packageJsonPath);
@@ -73,4 +73,33 @@ export function transformVariableName(str: string) {
  */
 export function getDirname() {
     return path.dirname(fileURLToPath(import.meta.url));
+}
+
+enum MessageColor {
+    black = '\x1b[30m',
+    red = '\x1b[31m',
+    green = '\x1b[32m',
+    yellow = '\x1b[33m',
+    blue = '\x1b[34m',
+    magenta = '\x1b[35m',
+    cyan = '\x1b[36m',
+    white = '\x1b[37m',
+    reset = '\x1b[0m',
+}
+interface MessageOptions {
+    color?: keyof typeof MessageColor;
+    prefix?: string;
+    suffix?: string;
+};
+/**
+ * @description log输出函数
+ */
+export function logMessage(message: string, options: MessageOptions): void {
+    const { color = "Reset", prefix = "", suffix = "" } = options
+    // 获取当前时间并格式化为 [YYYY-MM-DD HH:mm:ss] 格式
+    const timestamp = new Date().toISOString().replace('T', ' ').split('.')[0];
+    // 根据 color key 获取对应的 color value
+    const colorCode = MessageColor[color as keyof typeof MessageColor];
+    // 输出带时间戳、颜色、前后缀的消息
+    console.log(`[${timestamp}] ${colorCode}${prefix}${message}${MessageColor.reset}${suffix}`);
 }
