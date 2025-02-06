@@ -1,0 +1,55 @@
+{{{ requestLibPath }}}
+
+{{#each apiData }}
+{{#if this.description}}/* {{this.description}} */{{/if}}
+export async function {{this.name}}(
+{{#if this.hasParams}}
+  params:{
+  {{#each paramsType.pathArr}}
+      {{name}}{{#unless required}}?{{/unless}}: {{type}},
+  {{/each}}
+  {{#each paramsType.queryArr}}
+      {{name}}{{#unless required}}?{{/unless}}: {{type}},
+  {{/each}}
+  },
+{{/if}}
+{{#if this.hasBody}}
+  body{{#unless this.bodyRequired}}?{{/unless}}: {{this.bodyType}},
+{{/if}}
+  options?: { [key: string]: any }) {
+{{#if hasParams}}
+ {{#if paramsType.inPath}}
+  const { {{#each paramsType.pathArr}}{{name}},{{/each}} {{#if paramsType.inQuery }}...queryParams{{/if}} } = params
+ {{/if}}
+{{/if}}
+  return request<any>(
+{{#if hasParams}}
+    {{#if paramsType.inPath}}
+        `{{this.path}}`
+    {{else}}
+        "{{this.path}}"
+    {{/if}}
+{{else}}
+        "{{this.path}}"
+{{/if}}
+    , {
+    method: "{{this.method}}",
+{{#unless (length0 headers)}}
+    headers: {
+        {{#each headers}}
+            "{{key}}": "{{value}}"
+        {{/each}}
+    },
+{{/unless}}
+{{#if hasParams}}
+  {{#if paramsType.inQuery}}
+    params{{#if paramsType.inPath}}:queryParams{{else}},{{/if}}
+  {{/if}}
+{{/if}}
+{{#if this.hasBody}}
+    body,
+{{/if}}
+    ...(options || {})
+  })
+}
+{{/each}}

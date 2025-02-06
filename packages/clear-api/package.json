@@ -1,0 +1,22 @@
+{
+	"name": "clear-api",
+	"version": "0.0.1",
+	"description": "A tool to generate service by openapi",
+	"main": "src/index.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"test": "tsc && node index.test.js"
+	},
+	"keywords": ["clear", "api", "clear-api", "openapi", "swagger"],
+	"author": "promonkeyli",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/promonkeyli/clear-api.git"
+	},
+	"bugs": {
+		"url": "https://github.com/promonkeyli/clear-api/issues"
+	},
+	"homepage": "https://github.com/promonkeyli/clear-api#readme"
+}
