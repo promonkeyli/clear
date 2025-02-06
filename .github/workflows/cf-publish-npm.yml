@@ -1,4 +1,4 @@
-name: clear-fetch npm pkg publish
+name: clear-fetch pkg publish
 
 on:
   pull_request:
