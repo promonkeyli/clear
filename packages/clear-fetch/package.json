@@ -2,6 +2,7 @@
   "name": "clear-fetch",
   "version": "0.0.3",
   "description": "A clear fetch library",
+  "private": false,
   "main": "index.js",
   "type": "module",
   "types": "typings.d.ts",
@@ -24,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/promonkeyli/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/clear-fetch#readme"
+  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/clear-fetch#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
