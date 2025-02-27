@@ -8,7 +8,6 @@
     "front-end"
   ],
   "author": "promonkeyli",
-  "license": "ISC",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/figlet": "^1.7.0",

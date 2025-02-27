@@ -47,6 +47,10 @@ importers:
 
   packages/clear: {}
 
+  packages/clear-api: {}
+
+  packages/clear-fetch: {}
+
   packages/create-clear: {}
 
 packages:
