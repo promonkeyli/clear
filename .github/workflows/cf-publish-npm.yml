@@ -9,9 +9,12 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/clear-fetch
     steps:
       - name: Checkout Branch
         uses: actions/checkout@v4
       - uses: JS-DevTools/npm-publish@v3
         with:
-          token: ${{ secrets.npm_token }}
+          token: ${{ secrets.NPM_TOKEN }}
