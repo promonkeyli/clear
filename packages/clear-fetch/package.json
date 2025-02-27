@@ -1,19 +1,32 @@
 {
   "name": "clear-fetch",
-  "version": "0.0.2",
-  "description": "A clear fetch request library",
+  "version": "0.0.3",
+  "description": "A clear fetch library",
   "main": "index.js",
   "type": "module",
-  "types": "index.d.ts",
+  "types": "typings.d.ts",
   "keywords": ["clear","fetch", "clear-fetch", "request","http"],
   "author": "promonkeyli",
   "license": "MIT",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "files": [
+    "index.js",
+    "typings.d.ts",
+    "src",
+    "dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/promonkeyli/clear-fetch.git"
+    "url": "git+https://github.com/promonkeyli/clear.git"
   },
   "bugs": {
-    "url": "https://github.com/promonkeyli/clear-fetch/issues"
+    "url": "https://github.com/promonkeyli/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear-fetch#readme"
+  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/clear-fetch#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
