@@ -24,9 +24,5 @@
   "bugs": {
     "url": "https://github.com/promonkeyli/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/clear-fetch#readme",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  }
+  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/clear-fetch#readme"
 }
