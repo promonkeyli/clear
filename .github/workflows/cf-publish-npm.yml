@@ -9,6 +9,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/clear-fetch
     steps:
       - name: Checkout Branch
         uses: actions/checkout@v4
