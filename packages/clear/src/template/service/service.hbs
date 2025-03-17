@@ -1,0 +1,13 @@
+/**
+* @description service 功能描述
+* @author Young
+* @created {{created}}
+*/
+
+/** 用户列表 获取所有用户 GET /users */
+export async function getUsers(options?: { [key: string]: any }) {
+return request<API.Response>('/users', {
+    method: 'GET',
+    ...(options || {}),
+    });
+    }

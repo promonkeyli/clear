@@ -1,0 +1,12 @@
+declare namespace API {
+{{#each tplData }}
+    type {{this.name}} = {
+      {{#each this.properties}}
+          {{#if this.description}}
+          /* {{this.description}} */
+          {{/if}}
+          {{this.name}}?: {{this.type}};
+      {{/each}}
+    }
+{{/each}}
+}

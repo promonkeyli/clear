@@ -1,0 +1,31 @@
+{
+  "name": "@promonkeyli/clear",
+  "version": "0.0.3",
+  "private": false,
+  "description": "A clear front-end cli.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "cr": "index.js"
+  },
+  "scripts": {
+    "build": "unbuild",
+    "test": "node index.js"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "clear",
+    "front-end",
+    "cli"
+  ],
+  "author": "promonkeyli",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

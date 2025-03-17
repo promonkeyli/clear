@@ -27,13 +27,5 @@
   "bugs": {
     "url": "https://github.com/promonkeyli/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear/master/packages/create-clear#readme",
-  "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
-    "@types/prompts": "^2.4.9",
-    "fs-extra": "^11.2.0",
-    "prompts": "^2.4.2",
-    "unbuild": "^3.2.0",
-    "chalk": "^5.4.1"
-  }
+  "homepage": "https://github.com/promonkeyli/clear/master/packages/create-clear#readme"
 }
