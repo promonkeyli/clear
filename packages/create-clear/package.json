@@ -1,6 +1,6 @@
 {
   "name": "create-clear",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "author": "promonkeyli",
   "bin": {
@@ -14,6 +14,7 @@
     "index.js",
     "template-next",
     "template-react",
+    ".gitignore", 
     "dist"
   ],
   "engines": {
