@@ -30,6 +30,10 @@ async function init() {
         );
         const targetDir = `${process.cwd()}/${projectName}`; // 目标路径
         await fs.copy(templateDir, targetDir)
+         // npm包发布的npmrc以及gitignore文件会被默认忽略，需要重命名
+        await fs.move(`${targetDir}/_gitignore`, '${targetDir}/.gitignore', { overwrite: true });
+        await fs.move(`${targetDir}/_npmrc`, '${targetDir}/.npmrc', { overwrite: true });
+        
         console.log(chalk.green(`✔ successfully created the project !`));
     } catch (e) {
         console.error(e);
