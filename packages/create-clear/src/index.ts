@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 import prompts from "prompts"
-import {fileURLToPath} from 'node:url';
-import path from 'node:path';
-import fs from 'fs-extra';
-import chalk from "chalk";
+import { choicesList, pullTemplate } from "./template";
 
 async function init() {
     try {
@@ -16,26 +13,17 @@ async function init() {
             type: 'select',
             name: 'template',
             message: 'Pick a project template',
-            choices: [
-                {title: 'React', description: 'This a react project template', value: 'template-react'},
-                {title: 'Next', description: 'This a next project template', value: 'template-next'}
-            ],
+            choices: choicesList,
             initial: 0
         }]);
-        const {projectName, template} = response
-        const templateDir = path.resolve(
-            fileURLToPath(import.meta.url),
-            '../..',
-            `${template}`,
-        );
+
+        const { projectName, template } = response // 项目名称和模版名称
+
         const targetDir = `${process.cwd()}/${projectName}`; // 目标路径
-        await fs.copy(templateDir, targetDir)
-         // npm包发布的npmrc以及gitignore文件会被默认忽略，需要重命名
-         console.log("目标路径",targetDir)
-        await fs.move(`${targetDir}/_gitignore`, `${targetDir}/.gitignore`, { overwrite: true });
-        await fs.move(`${targetDir}/_npmrc`, `${targetDir}/.npmrc`, { overwrite: true });
-        
-        console.log(chalk.green(`✔ successfully created the project !`));
+          console.log(projectName, template, targetDir)
+        pullTemplate(template, targetDir)
+      
+
     } catch (e) {
         console.error(e);
     }

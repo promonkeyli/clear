@@ -1,8 +1,20 @@
 {
   "name": "create-clear",
-  "version": "0.0.13",
+  "version": "0.0.14",
+  "description": "A CLI tool to quickly scaffold frontend projects with pre-configured templates",
   "type": "module",
   "author": "promonkeyli",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "template",
+    "frontend",
+    "react",
+    "taro",
+    "create-app",
+    "boilerplate"
+  ],
   "bin": {
     "create-clear": "index.js"
   },
@@ -19,6 +31,11 @@
   "engines": {
     "node": "^19.0.0 || ^20.0.0 || >=22.0.0"
   },
+  "dependencies": {
+    "tiged": "^2.12.7",
+    "chalk": "^5.4.1",
+    "prompts": "^2.4.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/promonkeyli/clear.git",
@@ -27,7 +44,7 @@
   "bugs": {
     "url": "https://github.com/promonkeyli/clear/issues"
   },
-  "homepage": "https://github.com/promonkeyli/clear/master/packages/create-clear#readme",
+  "homepage": "https://github.com/promonkeyli/clear/tree/master/packages/create-clear#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
