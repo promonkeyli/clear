@@ -54,7 +54,7 @@ export const pullTemplate = async (templateName: string, targetDir: string): Pro
     if (!repoPath) {
         throw new Error(`模版 ${templateName} 不存在`);
     }
-  console.log(chalk.blue(`正在拉取模版: ${repoPath}...`));
+  console.log(chalk.blue(`拉取模版中...`));
 
   const emitter = tiged(repoPath, {
     disableCache: true,
@@ -64,9 +64,9 @@ export const pullTemplate = async (templateName: string, targetDir: string): Pro
 
   try {
     await emitter.clone(targetDir);
-    console.log(chalk.green(`✔ 模版拉取成功`));
+    console.log(chalk.green(`✔ 拉取成功`));
   } catch (error: any) {
-    console.error(chalk.red(`✖ 模版拉取失败: ${error.message}`));
+    console.error(chalk.red(`✖ 拉取失败: ${error.message}`));
     throw error;
   }
 };

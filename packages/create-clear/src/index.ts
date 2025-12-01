@@ -16,14 +16,10 @@ async function init() {
             choices: choicesList,
             initial: 0
         }]);
-
         const { projectName, template } = response // 项目名称和模版名称
-
         const targetDir = `${process.cwd()}/${projectName}`; // 目标路径
           console.log(projectName, template, targetDir)
         pullTemplate(template, targetDir)
-      
-
     } catch (e) {
         console.error(e);
     }
