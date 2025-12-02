@@ -12,19 +12,19 @@ const prefix = 'promonkeyli/program-template';
 const templateList = [
     {
         name: 'mobile-taro',
-        description: 'This a mobile-taro project template',
-        repoPath: `${prefix}/frontend/mobile-taro`,    
+        description: 'A mobile app template built with Taro v4, TailwindCSS, Axios, and Zustand.',
+        repoPath: `${prefix}/frontend/mobile-taro`,
     },
     {
         name: 'admin-react',
-        description: 'This a admin-react project template',
-        repoPath: `${prefix}/frontend/admin-react`,    
+        description: 'A modern admin dashboard template built with React 19.2, TanStack Router, TanStack Query, shadcn/ui, TailwindCSS, and Zustand.',
+        repoPath: `${prefix}/frontend/admin-react`,
     },
     {
         name: 'admin-gin',
-        description: 'This a admin-gin project template',
+        description: 'A production-ready admin backend template built with Go, Gin, GORM, PostgreSQL, Redis, and MongoDB.',
         repoPath: `${prefix}/backend/admin-gin`,
-    },
+    }
 ]
 
 // 命令行选择列表
